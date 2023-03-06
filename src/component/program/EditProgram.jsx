@@ -5,7 +5,6 @@ import moment from "moment";
 
 const EditProgram = () => {
   const [form] = Form.useForm();
-  const [program, setProgram] = useState({});
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -13,7 +12,6 @@ const EditProgram = () => {
     fetch(`http://localhost:8080/programs/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        setProgram(data);
         form.setFieldsValue({
           programName: data.programName,
           details: data.details,
