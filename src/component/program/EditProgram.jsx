@@ -41,7 +41,7 @@ const EditProgram = () => {
   return (
     <div>
       <h1>Edit Program</h1>
-      <Form form={form} onFinish={onFinish}>
+      <Form form={form} onFinish={onFinish} layout="vertical"> 
         <Form.Item
           label="Program Name"
           name="programName"

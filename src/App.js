@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, PageHeader } from "antd";
+import { Button, Card, PageHeader } from "antd";
 import { Link, Outlet } from "react-router-dom";
 import "./App.css";
 
@@ -7,7 +7,9 @@ import { Layout, Menu } from "antd";
 import {
   AppstoreOutlined,
   MailOutlined,
-  SettingOutlined,HomeOutlined
+  SettingOutlined,
+  HomeOutlined,
+  LogoutOutlined,
 } from "@ant-design/icons";
 
 const { Sider, Content } = Layout;
@@ -19,6 +21,16 @@ function App() {
       <PageHeader
         className="site-page-header"
         // onBack={() => null}
+        extra={[
+          <Button
+            key="1"
+            icon={<LogoutOutlined/>}
+            type="default"
+            // onClick={handleLogout}
+          >
+            Logout
+          </Button>,
+        ]}
         title="ADM - Desa App"
         subTitle="aplikasi manajemen desa"
       />
@@ -30,7 +42,7 @@ function App() {
             defaultOpenKeys={["sub1"]}
             style={{ height: "100%", borderRight: 0 }}
           >
-            <Menu.Item  icon={<HomeOutlined />} >
+            <Menu.Item icon={<HomeOutlined />}>
               <Link to={"/"}>Home</Link>
             </Menu.Item>
             <SubMenu key="sub1" icon={<MailOutlined />} title="Program">
@@ -41,12 +53,13 @@ function App() {
                 <Link to={"/add-program"}></Link>Add Program
               </Menu.Item>
             </SubMenu>
-            
           </Menu>
         </Sider>
         <Layout>
-          <Content style={{ padding: "50px" }}>
-            <Outlet />
+          <Content style={{ padding: "10px" }}>
+            <Card>
+              <Outlet />
+            </Card>
           </Content>
         </Layout>
       </Layout>

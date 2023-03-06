@@ -64,7 +64,7 @@ const ListProgram = () => {
       render: (text, record) => (
         <>
           <Space>
-            <Button type="primary" onClick={() => handleUpdate(record)}>
+            <Button type="default" onClick={() => handleUpdate(record)}>
               Update
             </Button>
             <Popconfirm
@@ -73,7 +73,7 @@ const ListProgram = () => {
               okText="Yes"
               cancelText="No"
             >
-              <Button type="danger">Delete</Button>
+              <Button type="default">Delete</Button>
             </Popconfirm>
           </Space>
         </>

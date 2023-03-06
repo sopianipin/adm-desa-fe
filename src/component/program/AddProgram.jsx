@@ -34,7 +34,7 @@ const AddProgram = () => {
   };
 
   return (
-    <Form form={form} onFinish={handleSubmit}>
+    <Form form={form} onFinish={handleSubmit} layout="vertical">
       <Form.Item
         label="Program Name"
         name="programName"
