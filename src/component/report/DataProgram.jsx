@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, Table } from "antd";
-
+import { DownloadOutlined } from "@ant-design/icons";
 const DataProgram = () => {
   const [data, setData] = useState([]);
 
@@ -49,9 +49,14 @@ const DataProgram = () => {
   return (
     <div>
       <h1>Data Program</h1>
-      <Button type="primary" onClick={handleDownloadReport}>
-        Download Report
-      </Button>
+      <div style={{ marginBottom: "16px" }}>
+        <Button
+          type="primary"
+          icon={<DownloadOutlined />}
+        >
+          Unduh Laporan
+        </Button>
+      </div>
       <Table columns={columns} dataSource={data} />
     </div>
   );

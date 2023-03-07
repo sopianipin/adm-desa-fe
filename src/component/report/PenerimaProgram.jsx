@@ -38,6 +38,7 @@ const PenerimaProgram = () => {
 
   return (
     <>
+    <h1>Penerima Program</h1>
       <div style={{ marginBottom: '16px' }}>
         <Button type="primary" icon={<DownloadOutlined />} onClick={handleDownload}>
           Unduh Laporan

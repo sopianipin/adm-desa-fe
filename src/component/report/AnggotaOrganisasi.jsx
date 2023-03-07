@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, Table } from "antd";
+import { DownloadOutlined } from '@ant-design/icons';
 
 const columns = [
   {
@@ -35,9 +36,15 @@ const AnggotaOrganisasi = () => {
 
   return (
     <>
-      <Button type="primary" onClick={fetchData}>
-        Download Laporan
-      </Button>
+      <h1>Anggota Organisasi</h1>
+      <div style={{ marginBottom: "16px" }}>
+        <Button
+          type="primary"
+          icon={<DownloadOutlined />}
+        >
+          Unduh Laporan
+        </Button>
+      </div>
       <Table columns={columns} dataSource={data} />
     </>
   );
