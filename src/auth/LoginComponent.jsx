@@ -11,9 +11,8 @@ function LoginComponent() {
         <Col>
           <PageHeader
             className="site-page-header"
-            // onBack={() => null}
-            title="ADM - Desa App"
-            subTitle="aplikasi manajemen desa"
+            title="Village Admin"
+            subTitle="Simplify village management with an elegant dashboard"
           />
         </Col>
       </Row>
