@@ -9,11 +9,11 @@ import AddProgram from "../component/program/AddProgram";
 import EditProgram from "../component/program/EditProgram";
 import ListProgram from "../component/program/ListProgram";
 
+const isAuth = () => {
+  return localStorage.getItem("username") != null;
+};
 const RouterComponent = () => {
-  const isLoggin = () => {
-    return localStorage.getItem("username") != "admin";
-    // return true;
-  };
+  const isLoggin = isAuth();
   const r = useRoutes([
     {
       path: "/",
