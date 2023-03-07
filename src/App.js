@@ -20,20 +20,12 @@ const { Sider, Content } = Layout;
 const { SubMenu } = Menu;
 
 function App() {
-  const avatar = (
-    <Avatar
-      size="large"
-      src={"https://joesch.moe/api/v1/random?key=1"}
-      alt="User Avatar"
-      style={{ backgroundColor: "#87d068" }}
-    />
-  );
+  
   return (
     <>
       <PageHeader
         className="site-page-header"
         // onBack={() => null}
-        avatar={avatar}
         extra={[
           <Button
             key="1"
@@ -44,8 +36,8 @@ function App() {
             Logout
           </Button>,
         ]}
-        title="ADM - Desa App"
-        subTitle="aplikasi manajemen desa"
+        title="Village Admin"
+        subTitle="Simplify village management with an elegant dashboard"
       />
       <Layout style={{ minHeight: "100vh" }}>
         <Sider width={250} className="site-layout-background">
@@ -80,22 +72,6 @@ function App() {
               </Menu.Item>
               <Menu.Item key="4" icon={<PlusOutlined />}>
                 <Link to={"/add-penduduk"}>Add Penduduk</Link>
-              </Menu.Item>
-            </SubMenu>
-            <SubMenu
-              key="sub3"
-              icon={<ClusterOutlined />}
-              title="Village Org Structure"
-            >
-              <Menu.Item key="5" icon={<UnorderedListOutlined />}>
-                <Link to={"/list-village-org-structure"}>
-                  List Village Org. Structure
-                </Link>
-              </Menu.Item>
-              <Menu.Item key="6" icon={<PlusOutlined />}>
-                <Link to={"/add-village-org-structure"}>
-                  Add Village Org. Structure
-                </Link>
               </Menu.Item>
             </SubMenu>
             <SubMenu
