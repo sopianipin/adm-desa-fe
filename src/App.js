@@ -1,37 +1,33 @@
+import { Button, Card, PageHeader } from "antd";
 import React from "react";
-import { Avatar, Button, Card, PageHeader } from "antd";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import "./App.css";
 
-import { Layout, Menu } from "antd";
 import {
-  HomeOutlined,
-  AppstoreOutlined,
-  UserOutlined,
-  ClusterOutlined,
-  ApartmentOutlined,
-  SolutionOutlined,
-  UnorderedListOutlined,
-  PlusOutlined,
-  LogoutOutlined
+  ApartmentOutlined, AppstoreOutlined, HomeOutlined, LogoutOutlined, PlusOutlined, SolutionOutlined,
+  UnorderedListOutlined, UserOutlined
 } from "@ant-design/icons";
+import { Layout, Menu } from "antd";
 
 const { Sider, Content } = Layout;
 const { SubMenu } = Menu;
 
 function App() {
-  
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/login");
+  };
   return (
     <>
       <PageHeader
         className="site-page-header"
-        // onBack={() => null}
         extra={[
           <Button
             key="1"
             icon={<LogoutOutlined />}
             type="default"
-            // onClick={handleLogout}
+            onClick={handleLogout}
           >
             Logout
           </Button>,
@@ -43,7 +39,7 @@ function App() {
         <Sider width={250} className="site-layout-background">
           <Menu
             mode="inline"
-            defaultSelectedKeys={["1"]}
+            defaultSelectedKeys={["0"]}
             // defaultOpenKeys={["sub1", "sub2", "sub3", "sub4", "sub5"]}
             style={{ height: "100%", borderRight: 0 }}
           >
@@ -58,7 +54,11 @@ function App() {
                 <Link to={"/add-program"}>Add Program</Link>
               </Menu.Item>
             </SubMenu>
-            <SubMenu key="sub6" icon={<AppstoreOutlined />} title="Program Detail">
+            <SubMenu
+              key="sub6"
+              icon={<AppstoreOutlined />}
+              title="Program Detail"
+            >
               <Menu.Item key="11" icon={<UnorderedListOutlined />}>
                 <Link to={"/list-program-detail"}>List Programs Detail</Link>
               </Menu.Item>
