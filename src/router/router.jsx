@@ -3,6 +3,7 @@ import { useRoutes } from "react-router-dom";
 import App from "../App";
 import LoginComponent from "../auth/LoginComponent";
 import Home from "../component/Home";
+import ListPenduduk from "../component/penduduk/ListPenduduk";
 import AddProgramDetail from "../component/program-detail/AddProgramDetail";
 import ListProgramDetail from "../component/program-detail/ListProgramDetail";
 import AddProgram from "../component/program/AddProgram";
@@ -47,10 +48,10 @@ const RouterComponent = () => {
         //   path: "/edit-program-detail/:id",
         //   element: <EditProgramDetail />,
         // },
-        // {
-        //   path: "/list-penduduk",
-        //   element: <ListPenduduk />,
-        // },
+        {
+          path: "/list-penduduk",
+          element: <ListPenduduk />,
+        },
         // {
         //   path: "/add-penduduk",
         //   element: <AddPenduduk />,

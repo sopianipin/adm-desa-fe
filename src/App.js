@@ -4,8 +4,12 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import "./App.css";
 
 import {
-  ApartmentOutlined, AppstoreOutlined, HomeOutlined, LogoutOutlined, PlusOutlined, SolutionOutlined,
-  UnorderedListOutlined, UserOutlined
+  ApartmentOutlined,
+  AppstoreOutlined, BookOutlined, ClusterOutlined, HomeOutlined,
+  LogoutOutlined,
+  PlusOutlined,
+  FilePdfOutlined,
+  SolutionOutlined, TeamOutlined, UnorderedListOutlined, UsergroupAddOutlined, UserOutlined
 } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 
@@ -99,6 +103,27 @@ function App() {
               <Menu.Item key="10" icon={<PlusOutlined />}>
                 <Link to={"/add-village-org-detail"}>
                   Add Village Org. Detail
+                </Link>
+              </Menu.Item>
+            </SubMenu>
+            <SubMenu key="sub7" icon={<FilePdfOutlined />} title="Report">
+              <Menu.Item key="13" icon={<UserOutlined />}>
+                <Link to="/reports/population">Jumlah Penduduk</Link>
+              </Menu.Item>
+              <Menu.Item key="14" icon={<BookOutlined />}>
+                <Link to="/reports/program">Data Program</Link>
+              </Menu.Item>
+              <Menu.Item key="15" icon={<TeamOutlined />}>
+                <Link to="/reports/program-receivers">
+                  Penerima Program
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="16" icon={<ClusterOutlined />}>
+                <Link to="/reports/organizations">Organisasi Desa</Link>
+              </Menu.Item>
+              <Menu.Item key="17" icon={<UsergroupAddOutlined />}>
+                <Link to="/reports/organization-members">
+                  Anggota Organisasi
                 </Link>
               </Menu.Item>
             </SubMenu>
