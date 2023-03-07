@@ -10,10 +10,14 @@ import EditProgram from "../component/program/EditProgram";
 import ListProgram from "../component/program/ListProgram";
 
 const RouterComponent = () => {
+  const isLoggin = () => {
+    return localStorage.getItem("username") != "admin";
+    // return true;
+  };
   const r = useRoutes([
     {
       path: "/",
-      element: <App />,
+      element: isLoggin ? <App /> : <LoginComponent />,
       children: [
         {
           index: true,
