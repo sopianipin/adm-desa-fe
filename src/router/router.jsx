@@ -3,6 +3,7 @@ import { useRoutes } from "react-router-dom";
 import App from "../App";
 import LoginComponent from "../auth/LoginComponent";
 import Home from "../component/Home";
+import AddPenduduk from "../component/penduduk/AddPenduduk";
 import ListPenduduk from "../component/penduduk/ListPenduduk";
 import AddProgramDetail from "../component/program-detail/AddProgramDetail";
 import ListProgramDetail from "../component/program-detail/ListProgramDetail";
@@ -14,7 +15,9 @@ import DataProgram from "../component/report/DataProgram";
 import JumlahPenduduk from "../component/report/JumlahPenduduk";
 import OrganisasiDesa from "../component/report/OrganisasiDesa";
 import PenerimaProgram from "../component/report/PenerimaProgram";
+import AddVillageOrgDetail from "../component/village-org-detail/AddVillageOrgDetail";
 import ListVillageOrgDetail from "../component/village-org-detail/ListVillageOrgDetail";
+import AddVillageOrg from "../component/village-org/AddVillageOrg";
 import ListVillageOrg from "../component/village-org/ListVillageOrg";
 
 const isAuth = () => {
@@ -59,26 +62,26 @@ const RouterComponent = () => {
           path: "/list-penduduk",
           element: <ListPenduduk />,
         },
-        // {
-        //   path: "/add-penduduk",
-        //   element: <AddPenduduk />,
-        // },
+        {
+          path: "/add-penduduk",
+          element: <AddPenduduk />,
+        },
         {
           path: "/list-village-org",
           element: <ListVillageOrg />,
         },
-        // {
-        //   path: "/add-village-org",
-        //   element: <AddVillageOrg />,
-        // },
+        {
+          path: "/add-village-org",
+          element: <AddVillageOrg />,
+        },
         {
           path: "/list-village-org-detail",
           element: <ListVillageOrgDetail />,
         },
-        // {
-        //   path: "/add-village-org-detail",
-        //   element: <AddVillageOrgDetail />,
-        // },
+        {
+          path: "/add-village-org-detail",
+          element: <AddVillageOrgDetail />,
+        },
         {
           path: "/reports/population",
           element: <JumlahPenduduk />,

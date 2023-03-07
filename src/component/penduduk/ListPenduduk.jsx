@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Table, Button, Modal, Descriptions } from "antd";
+import { Link } from "react-router-dom";
+import { PlusOutlined } from "@ant-design/icons";
 
 const ListPenduduk = () => {
   const [data, setData] = useState([]);
@@ -77,8 +79,13 @@ const ListPenduduk = () => {
 
   return (
     <div>
+      <Link to={"/add-penduduk"}>
+        <Button type="primary" icon={<PlusOutlined />}>
+          Add Data
+        </Button>
+      </Link>{" "}
+      <br /> <br />
       <Table columns={columns} dataSource={data} rowKey="id" />
-
       <Modal
         title="Detail Penduduk"
         visible={visible}

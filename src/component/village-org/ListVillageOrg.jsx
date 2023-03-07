@@ -1,5 +1,6 @@
 import { Button, Form, Space, Table } from "antd";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const ListVillageOrg = () => {
   const [orgList, setOrgList] = useState([]);
@@ -64,7 +65,9 @@ const ListVillageOrg = () => {
   return (
     <>
       <div style={{ marginBottom: "16px" }}>
-        <Button type="primary">Add Organization</Button>
+        <Link to={"/add-village-org"}>
+          <Button type="primary">Add Organization</Button>
+        </Link>
       </div>
       <Table dataSource={orgList} columns={columns} rowKey="id" />
     </>

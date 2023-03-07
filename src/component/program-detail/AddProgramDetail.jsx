@@ -1,20 +1,46 @@
-import { Form, Input, Button } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { Form, Input, Button, Select } from "antd";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+const { Option } = Select;
 
 const AddProgramDetail = () => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [nikOptions, setNikOptions] = useState([]);
+  const [programs, setPrograms] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:8080/programs")
+      .then((response) => response.json())
+      .then((data) => {
+        setPrograms(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+
+    fetch("http://localhost:8080/penduduk")
+      .then((response) => response.json())
+      .then((data) => {
+        const options = data.map((penduduk) => ({
+          label: penduduk.nik,
+          value: penduduk.nik,
+        }));
+        setNikOptions(options);
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
   const onFinish = async (values) => {
     try {
-      const response = await fetch('http://localhost:8080/program-details', {
-        method: 'POST',
+      const response = await fetch("http://localhost:8080/program-details", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(values)
+        body: JSON.stringify(values),
       });
       const data = await response.json();
       console.log(data);
-      navigate("/list-program-detail")
+      navigate("/list-program-detail");
       // do something after successful post
     } catch (error) {
       console.error(error);
@@ -23,7 +49,7 @@ const AddProgramDetail = () => {
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+    console.log("Failed:", errorInfo);
   };
 
   return (
@@ -40,7 +66,7 @@ const AddProgramDetail = () => {
         rules={[
           {
             required: true,
-            message: 'Please input the detail!',
+            message: "Please input the detail!",
           },
         ]}
       >
@@ -53,24 +79,36 @@ const AddProgramDetail = () => {
         rules={[
           {
             required: true,
-            message: 'Please input the ProgramID!',
+            message: "Please input the ProgramID!",
           },
         ]}
       >
-        <Input type="number" />
+        <Select placeholder="Select Program">
+          {programs.map((option) => (
+            <Option key={option.value} value={option.programName}>
+              {option.label}
+            </Option>
+          ))}
+        </Select>
       </Form.Item>
 
       <Form.Item
-        label="NIK"
         name="nik"
+        label="NIK"
         rules={[
           {
             required: true,
-            message: 'Please input the NIK!',
+            message: "Please select NIK",
           },
         ]}
       >
-        <Input />
+        <Select placeholder="Select NIK">
+          {nikOptions.map((option) => (
+            <Option key={option.value} value={option.value}>
+              {option.label}
+            </Option>
+          ))}
+        </Select>
       </Form.Item>
 
       <Form.Item
